@@ -73,10 +73,10 @@ public class FornecedorDao {
             fr = new BufferedReader(new FileReader("Fornecedor.cc"));
 
             while ((linha = fr.readLine()) != null) {
-                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+11, linha.indexOf("<nome>")));
+                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+14, linha.indexOf("<nome>")));
                 nome = linha.substring((linha.indexOf("<nome>")+6), linha.indexOf("<cnpj>"));
-                cnpj = linha.substring((linha.indexOf("<cnpj>")+5), linha.indexOf("<ramo>"));
-                ramo = linha.substring((linha.indexOf("<ramo>")+7), linha.indexOf("<fdl>"));
+                cnpj = linha.substring((linha.indexOf("<cnpj>")+6), linha.indexOf("<ramo>"));
+                ramo = linha.substring((linha.indexOf("<ramo>")+6), linha.indexOf("<fdl>"));
 
                 listFornecedor.add(new Fornecedor(idFornecedor, nome, cnpj, ramo));
             }
@@ -97,10 +97,10 @@ public class FornecedorDao {
             fr = new BufferedReader(new FileReader("Fornecedor.cc"));
 
             while ((linha = fr.readLine()) != null) {
-                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+11, linha.indexOf("<nome>")));
+                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+14, linha.indexOf("<nome>")));
                 nome = linha.substring((linha.indexOf("<nome>")+6), linha.indexOf("<cnpj>"));
-                cnpj = linha.substring((linha.indexOf("<cnpj>")+5), linha.indexOf("<ramo>"));
-                ramo = linha.substring((linha.indexOf("<ramo>")+7), linha.indexOf("<fdl>"));
+                cnpj = linha.substring((linha.indexOf("<cnpj>")+6), linha.indexOf("<ramo>"));
+                ramo = linha.substring((linha.indexOf("<ramo>")+6), linha.indexOf("<fdl>"));
 
                 if(idFornecedorProcurado == idFornecedor){
                     Fornecedor fornecedorProcurado = new Fornecedor(idFornecedor, nome, cnpj, ramo);
@@ -124,10 +124,10 @@ public class FornecedorDao {
             fr = new BufferedReader(new FileReader("Fornecedor.cc"));
 
             while ((linha = fr.readLine()) != null) {
-                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+11, linha.indexOf("<nome>")));
+                idFornecedor =  Integer.parseInt(linha.substring(linha.indexOf("<idFornecedor>")+14, linha.indexOf("<nome>")));
                 nome = linha.substring((linha.indexOf("<nome>")+6), linha.indexOf("<cnpj>"));
-                cnpj = linha.substring((linha.indexOf("<cnpj>")+5), linha.indexOf("<ramo>"));
-                ramo = linha.substring((linha.indexOf("<ramo>")+7), linha.indexOf("<fdl>"));
+                cnpj = linha.substring((linha.indexOf("<cnpj>")+6), linha.indexOf("<ramo>"));
+                ramo = linha.substring((linha.indexOf("<ramo>")+6), linha.indexOf("<fdl>"));
 
                 if(cnpjProcurado.equals(cnpj)){
                     Fornecedor fornecedorProcurado = new Fornecedor(idFornecedor, nome, cnpj, ramo);

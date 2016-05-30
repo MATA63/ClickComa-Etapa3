@@ -28,6 +28,11 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     private int idAjudaSuporteDescricao = 3;
     private String ReclamacaoDescricao = "titulo Reclamacao teste do JUnit";
 
+    private String fornecedorNome = "NomeFornecedor";
+    private String fornecedorRamo = "RamoFornecedor";
+    private String fornecedorCNPJ = "CNPJFornecedor";
+    private int idFornecedorDescricao = 3;
+    
     public JUnitTest3() {
     }
     
@@ -95,8 +100,6 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
         }else{
             assertTrue(false);
         }
-
-       
     }
     
     @Test
@@ -141,7 +144,7 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     // ================= RELATORIOS =================
     
     @Test
-    public void ExibirRelatorioPedidosPorCliente() throws IOException{
+    public void testExibirRelatorioPedidosPorCliente() throws IOException{
         PedidoDao pedidoDao = new PedidoDao();
         List<Pedido> listPedido = new ArrayList();
         listPedido = pedidoDao.abrirPedido();
@@ -175,4 +178,74 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
         
         assertNotNull(listPedido);
     }
+    
+    // ================= FORNECEDOR =================
+
+    @Test
+    public void testInserirFornecedor() throws IOException{
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        Fornecedor fornecedor = new Fornecedor();
+        Fornecedor fornecedorResultado = new Fornecedor();
+        
+        fornecedor.setNome(this.fornecedorNome);
+        fornecedor.setCnpj(this.fornecedorCNPJ);
+        fornecedor.setRamo(this.fornecedorRamo);
+
+        fornecedorResultado = fornecedorDao.salvarFornecedor(fornecedor);
+        this.idFornecedorDescricao = fornecedorResultado.getIdFornecedor();
+        
+        assertNotNull(fornecedorResultado);
+        
+    }
+
+    @Test
+    public void testExibirFornecedor() throws IOException{
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        Fornecedor fornecedor = new Fornecedor();
+        
+        fornecedor = fornecedorDao.abrirFornecedor(this.idFornecedorDescricao);
+
+        assertNotNull(fornecedor);
+    }
+  
+    @Test
+    public void testAlterarFornecedor() throws IOException{
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        List<Fornecedor> listFornecedor = new ArrayList<Fornecedor>();
+        Fornecedor fornecedorAlterado = new Fornecedor();
+        String novoNome = "NovoNomeJUnit";
+        listFornecedor = fornecedorDao.abrirFornecedor();
+        
+        //1 = Alterar Nome, 2 = Alterar CNPJ e 3 = Alterar Ramo
+        listFornecedor = fornecedorDao.alterarFornecedor(this.idFornecedorDescricao, 1, novoNome);
+        for(Fornecedor fornecedor: listFornecedor){
+            if(fornecedor.getIdFornecedor() == this.idFornecedorDescricao){
+                fornecedorAlterado = fornecedor;
+                break;
+            }
+        }
+        
+        if(novoNome.equals(fornecedorAlterado.getNome())){
+            assertTrue(true);
+        }else{
+            assertTrue(false);
+        }
+    }
+    
+    @Test
+    public void testExcluirFornecedor() throws IOException{
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        List<Fornecedor> listFornecedor = new ArrayList<Fornecedor>();
+        listFornecedor = fornecedorDao.abrirFornecedor();
+        
+        int QuantidadeListAntesExcluir = listFornecedor.size();
+        int QuantidadeListDepoisExcluir = 0;
+        
+        listFornecedor = fornecedorDao.excluirFornecedor(5);
+        QuantidadeListDepoisExcluir = listFornecedor.size();
+        
+        assertTrue(QuantidadeListAntesExcluir != QuantidadeListDepoisExcluir);
+    }
+    
+    
 }

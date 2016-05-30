@@ -66,7 +66,7 @@ public class ManterFornecedorView {
 	    
 	    public void fornecedorAlterar() throws IOException{
 	        Scanner scanner = new Scanner(System.in);
-	        Integer menuFornecedorInt = scanner.nextInt();
+	        Integer menuFornecedorInt =0;
 	        FornecedorDao fornecedorDao = new FornecedorDao();
 	        Fornecedor fornecedor = new Fornecedor();
 	        List<Fornecedor> listFornecedor = new ArrayList();
@@ -74,9 +74,7 @@ public class ManterFornecedorView {
 	        fornecedorExibir();
 	        System.out.print("Qual fornecedor:   ");
 	        menuFornecedorInt = scanner.nextInt();
-	        scanner.reset();
-
-	        ////for(short i=0; i<20; i++) System.out.println("\n");
+                
 	        System.out.println("   O que deseja alterar?   ");
 	        System.out.println("1. Nome");
 	        System.out.println("2. CNPJ");
