@@ -25,7 +25,7 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     
     private String ajudaSuporteTitulo = "titulo teste do JUnit";
     private String ajudaSuporteDescricao = "descricao teste do JUnit";
-    private int idAjudaSuporteDescricao;
+    private int idAjudaSuporteDescricao = 3;
     
     public JUnitTest3() {
     }
@@ -89,8 +89,12 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
             }
         }
         
-        
-        assertEquals(novoTitulo, ajudaSuporteAlterado.getTitulo());
+        if(novoTitulo.equals(ajudaSuporteAlterado.getTitulo())){
+            assertTrue(true);
+        }else{
+            assertTrue(false);
+        }
+
        
     }
     
@@ -112,13 +116,13 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     // ================= RELATORIO PEDIDOS POR CLIENTE =================
     
 //    @Test
-    public void ExibirRelatorioPedidosPorCliente() throws IOException{
-        PedidoDao pedidoDao = new PedidoDao();
-        List<Pedido> listPedido = new ArrayList();
-        listPedido = pedidoDao.abrirPedido();
-        
-        //assertNotNull(listPedido);
-    }
+//    public void ExibirRelatorioPedidosPorCliente() throws IOException{
+//        PedidoDao pedidoDao = new PedidoDao();
+//        List<Pedido> listPedido = new ArrayList();
+//        listPedido = pedidoDao.abrirPedido();
+//        
+//        //assertNotNull(listPedido);
+//    }
 //
 //    @Test
 //    public void ExibeRelatorioPorAtendimento() throws IOException{
@@ -130,14 +134,14 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
 //        assertNotNull(listPedido);
 //    }
     
-    @Test
-    public void testExibeRelatorioFinanceiro() throws Exception {
-        ContaDao contaDao = new ContaDao();
-        List<Conta> listConta = new ArrayList();
-        listConta = contaDao.abrirConta();
-
-        assertNotNull(listConta);
-    }
+//    @Test
+//    public void testExibeRelatorioFinanceiro() throws Exception {
+//        ContaDao contaDao = new ContaDao();
+//        List<Conta> listConta = new ArrayList();
+//        listConta = contaDao.abrirConta();
+//
+//        assertNotNull(listConta);
+//    }
     
     
 }

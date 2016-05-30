@@ -43,7 +43,7 @@ public class AjudaSuporteDao {
             }
             bw = new BufferedWriter(new FileWriter("AjudaSuporte.cc", true)); 
             for(AjudaSuporte ajudaSuporte: listAjudaSuporte){
-                bw.write("<idReclamacao>"+ajudaSuporte.getIdAjudaSuporte().toString()
+                bw.write("<idAjudaSuporte>"+ajudaSuporte.getIdAjudaSuporte().toString()
                 		+"<Titulo>"+ajudaSuporte.getTitulo()	
                 		+"<descricao>"+ajudaSuporte.getDescricao()+"<fdl>");
                 bw.newLine();
@@ -58,7 +58,7 @@ public class AjudaSuporteDao {
     }
     
     public List<AjudaSuporte> abrirAjudaSuporte() throws IOException{
-        List<AjudaSuporte> listAjudaSuporte = new ArrayList();
+        List<AjudaSuporte> listAjudaSuporte = new ArrayList<AjudaSuporte>();
         try{
             String linha;
             Integer idAjudaSuporte;
@@ -67,7 +67,6 @@ public class AjudaSuporteDao {
             fr = new BufferedReader(new FileReader("AjudaSuporte.cc"));
 
             while ((linha = fr.readLine()) != null) {
-                //                  Integer.parseInt(linha.substring(linha.indexOf("<idConta>")+9, linha.indexOf("<idCliente>")));
                 idAjudaSuporte =  Integer.parseInt(linha.substring(linha.indexOf("<idAjudaSuporte>")+16, linha.indexOf("<Titulo>")));
                 titulo = linha.substring(linha.indexOf("<Titulo>")+8, linha.indexOf("<descricao>"));
                 descricao = linha.substring(linha.indexOf("<descricao>")+11, linha.indexOf("<fdl>"));
@@ -137,7 +136,7 @@ public class AjudaSuporteDao {
     }   
    
     public List<AjudaSuporte> alterarAjudaSuporte(Integer idAjudaSuporteAlterar, Integer numAtributoAlterar, String novoAtributo) throws IOException{
-        List<AjudaSuporte> listAjudaSuporte = new ArrayList();
+        List<AjudaSuporte> listAjudaSuporte = new ArrayList<AjudaSuporte>();
         listAjudaSuporte = abrirAjudaSuporte();
         
         for(AjudaSuporte ajudaSuporte: listAjudaSuporte){
