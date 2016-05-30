@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-23T08:15:12 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pedidos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa2395df-134c-45c7-8786-1fa562551306">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="idPedido" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="conta" class="java.lang.String"/>
+	<field name="item" class="java.lang.String"/>
+	<field name="quantidade" class="java.lang.String"/>
+	<field name="dataHora" class="java.lang.String"/>
+	<field name="garcom" class="java.lang.String"/>
+	<field name="cozinheiro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="idPedido1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{idPedido}]]></variableExpression>
+	</variable>
+	<variable name="conta1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{conta}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="f10540c5-ef72-40f4-81bc-f2ecc6ecf48d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Relatorio de Pedidos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="79" height="37" uuid="e2cf0af3-ac2e-4678-b76a-99985b478140"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="20" width="78" height="37" uuid="6c4effb7-69e5-4a5f-9226-25a5a91fe1ee"/>
+				<text><![CDATA[Conta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="20" width="79" height="37" uuid="49c218fb-3841-41d8-9865-26e1d1174b0c"/>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="20" width="79" height="37" uuid="af58a85a-b354-4d46-b318-57c84ce67d1f"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="20" width="76" height="37" uuid="2de520b4-a61e-4bc2-9d91-57e89cefee40"/>
+				<text><![CDATA[Qtd.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="20" width="79" height="37" uuid="7bd89515-5c63-496c-a926-69b0427f7797"/>
+				<text><![CDATA[Garçom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="20" width="81" height="37" uuid="d0d23b18-6532-40aa-ab12-4184a6800c0a"/>
+				<text><![CDATA[Cozinheiro]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.grid.JSSGridBagLayout"/>
+			<textField>
+				<reportElement x="0" y="0" width="79" height="62" uuid="d98602c5-9385-4113-92e4-fe27e698c053"/>
+				<textFieldExpression><![CDATA[$F{idPedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="79" height="62" uuid="599686d0-dfd4-4ef3-a9fa-f09fc662000b"/>
+				<textFieldExpression><![CDATA[$F{conta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="62" uuid="69a599cb-4b6c-48b7-a566-862f1187e61e"/>
+				<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="62" uuid="4af22301-b8b1-4c9a-94b4-132d4863e96d"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="79" height="62" uuid="837a9b6b-9a9e-4b57-81f4-e88923e494f2"/>
+				<textFieldExpression><![CDATA[$F{dataHora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="79" height="62" uuid="5d3afad6-c117-4aa4-aab0-9290913b1a31"/>
+				<textFieldExpression><![CDATA[$F{garcom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="79" height="62" uuid="d2e98028-e8d1-43da-8cbe-17e78dad6235"/>
+				<textFieldExpression><![CDATA[$F{cozinheiro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="313" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
