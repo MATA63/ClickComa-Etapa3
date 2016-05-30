@@ -67,39 +67,77 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
         AjudaSuporteDao ajudaSuporteDao = new AjudaSuporteDao();
         AjudaSuporte ajudaSuporte = new AjudaSuporte();
         
-        ajudaSuporte = ajudaSuporteDao.abrirAjudaSuporte(2);
+        ajudaSuporte = ajudaSuporteDao.abrirAjudaSuporte(this.idAjudaSuporteDescricao);
 
         assertNotNull(ajudaSuporte);
     }
     
     @Test
-    public void ExibirAjudaESuporte() throws IOException{
+    public void AlterarAjudaESuporte() throws IOException{
         AjudaSuporteDao ajudaSuporteDao = new AjudaSuporteDao();
-        AjudaSuporte ajudaSuporte = new AjudaSuporte();
+        List<AjudaSuporte> listAjudaSuporte = new ArrayList<AjudaSuporte>();
+        AjudaSuporte ajudaSuporteAlterado = new AjudaSuporte();
+        String novoTitulo = "NovoTituloJUnit";
+        listAjudaSuporte = ajudaSuporteDao.abrirAjudaSuporte();
         
-        ajudaSuporte = ajudaSuporteDao.abrirAjudaSuporte(2);
-
-        assertNotNull(ajudaSuporte);
+        //1 = Alterar Titulo e 2 = Alterar Descricao
+        listAjudaSuporte = ajudaSuporteDao.alterarAjudaSuporte(this.idAjudaSuporteDescricao, 1, novoTitulo);
+        for(AjudaSuporte ajudaSuporte: listAjudaSuporte){
+            if(ajudaSuporte.getIdAjudaSuporte() == this.idAjudaSuporteDescricao){
+                ajudaSuporteAlterado = ajudaSuporte;
+                break;
+            }
+        }
+        
+        
+        assertEquals(novoTitulo, ajudaSuporteAlterado.getTitulo());
+       
+    }
+    
+    @Test
+    public void ExcluirAjudaESuporte() throws IOException{
+        AjudaSuporteDao ajudaSuporteDao = new AjudaSuporteDao();
+        List<AjudaSuporte> listAjudaSuporte = new ArrayList<AjudaSuporte>();
+        listAjudaSuporte = ajudaSuporteDao.abrirAjudaSuporte();
+        
+        int QuantidadeListAntesExcluir = listAjudaSuporte.size();
+        int QuantidadeListDepoisExcluir = 0;
+        
+        listAjudaSuporte = ajudaSuporteDao.excluirAjudaSuporte(this.idAjudaSuporteDescricao);
+        QuantidadeListDepoisExcluir = listAjudaSuporte.size();
+        
+        assertTrue(QuantidadeListAntesExcluir != QuantidadeListDepoisExcluir);
     }
     
     // ================= RELATORIO PEDIDOS POR CLIENTE =================
     
-    @Test
+//    @Test
     public void ExibirRelatorioPedidosPorCliente() throws IOException{
         PedidoDao pedidoDao = new PedidoDao();
         List<Pedido> listPedido = new ArrayList();
         listPedido = pedidoDao.abrirPedido();
         
-        assertNotNull(listPedido);
+        //assertNotNull(listPedido);
     }
-
+//
+//    @Test
+//    public void ExibeRelatorioPorAtendimento() throws IOException{
+//        PedidoDao pedidoDao = new PedidoDao();
+//        List<Pedido> listPedido = new ArrayList();
+//        
+//        listPedido = pedidoDao.abrirPedido();
+//        
+//        assertNotNull(listPedido);
+//    }
+    
     @Test
-    public void ExibeRelatorioPorAtendimento() throws IOException{
-        PedidoDao pedidoDao = new PedidoDao();
-        List<Pedido> listPedido = new ArrayList();
-        
-        listPedido = pedidoDao.abrirPedido();
-        
-        assertNotNull(listPedido);
+    public void testExibeRelatorioFinanceiro() throws Exception {
+        ContaDao contaDao = new ContaDao();
+        List<Conta> listConta = new ArrayList();
+        listConta = contaDao.abrirConta();
+
+        assertNotNull(listConta);
     }
+    
+    
 }
