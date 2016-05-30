@@ -110,22 +110,26 @@ public class RelatoriosView {
         //instancia a classe que faz acesso aos arquivos
         ContaDao contaDao = new ContaDao();
         //instancia uma lista da classe pedidos que vai receber todos os pedidos existentes nos arquivos.
-        List<Conta> listConta = new ArrayList();
+        List<Conta> listConta = new ArrayList<Conta>();
         //Chama a funcao que recebe a lista de todas as Contas.
         
         try {
-			listConta = contaDao.abrirConta();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+                listConta = contaDao.abrirConta();
+        } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
         //idConta, conta/horaInicio, conta/HoraFim.                                                                  
         System.out.printf("=============== RELATORIO DE FINANCEIRO ================\n\n");
         for(Conta conta: listConta){
             System.out.printf("- Numero da Conta: " + conta.getIdConta()+"\n");
             System.out.printf("- Nome do Cliente: " + conta.getCliente()+"\n");
             System.out.printf("- Hora Inicio: " + formatacaoData.format(conta.getDataHoraInicioAtendimento()) + "\n");
-            System.out.printf("- Hora Fim: " + formatacaoData.format(conta.getDataHoraFimAtendimento()) + "\n");
+            if (conta.getDataHoraFimAtendimento() != null){
+                System.out.printf("- Hora Fim: " + formatacaoData.format(conta.getDataHoraFimAtendimento()) + "\n");
+            }else{
+                System.out.printf("- Hora Fim: Data e Hora nao informado8.\n");
+            }
             System.out.printf("- Mesa Utilizada: " + conta.getMesa()+"\n");
         }
         System.out.printf("==================== FIM DO RELATORIO ====================");
