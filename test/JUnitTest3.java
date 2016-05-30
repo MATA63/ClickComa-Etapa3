@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author Igor
  */
-public class JUnitTest3 {
+public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     
     private String ajudaSuporteTitulo = "titulo teste do JUnit";
     private String ajudaSuporteDescricao = "descricao teste do JUnit";
