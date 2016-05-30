@@ -121,7 +121,8 @@ public class ModuloFuncionarioView {
             System.out.println("7. Gerar Relatorio de Pedido por Cliente");
             System.out.println("8. Gerar Relatorio de Pedidos");
             System.out.println("9. Gerar Relatorio Financeiro");
-            System.out.println("10. Sair");
+            System.out.println("10. Gerar Relatorio de Reclamacoes");
+            System.out.println("11. Sair");
             System.out.print("Opcao: ");
             String menuModulo = scanner.nextLine();
             switch( menuModulo )
@@ -159,6 +160,9 @@ public class ModuloFuncionarioView {
                     relatorioview.ExibeRelatorioFinanceiro();
                     break;
                 case "10":                	
+                    relatorioview.ExibeRelatorioReclamacoes();
+                    break;
+                case "11":                	
                     trueOuFalse = false;
                     break;
                 default:

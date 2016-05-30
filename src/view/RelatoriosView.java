@@ -31,7 +31,7 @@ public class RelatoriosView {
         //instancia a classe que faz acesso aos arquivos
         PedidoDao pedidoDao = new PedidoDao();
         //instancia uma lista da classe pedidos que vai receber todos os pedidos existentes nos arquivos.
-        List<Pedido> listPedido = new ArrayList();
+        List<Pedido> listPedido = new ArrayList<Pedido>();
         //Chama a funcao que recebe a lista de todos os pedidos.
         
         listPedido = pedidoDao.abrirPedido();
@@ -138,7 +138,7 @@ public class RelatoriosView {
         //instancia a classe que faz acesso aos arquivos
         PedidoDao pedidoDao = new PedidoDao();
         //instancia uma lista da classe pedidos que vai receber todos os pedidos existentes nos arquivos.
-        List<Pedido> listPedido = new ArrayList();
+        List<Pedido> listPedido = new ArrayList<Pedido>();
         //Chama a funcao que recebe a lista de todos os pedidos.
         
         listPedido = pedidoDao.abrirPedido();
@@ -156,4 +156,23 @@ public class RelatoriosView {
         System.out.printf("==================== FIM DO RELATORIO ====================");
     }
 
+    public void ExibeRelatorioReclamacoes() throws IOException{
+        //GERANDO RELATORIO DE Atendimento.
+        //Usado para formatar a data e hora.
+        DateFormat formatacaoData = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        //instancia a classe que faz acesso aos arquivos
+        ReclamacaoDao reclamacaoDao = new ReclamacaoDao();
+        //instancia uma lista da classe pedidos que vai receber todos os pedidos existentes nos arquivos.
+        List<Reclamacao> listReclamacao = new ArrayList<Reclamacao>();
+        //Chama a funcao que recebe a lista de todos os pedidos.
+        
+        listReclamacao = reclamacaoDao.abrirReclamacao();
+        //idPedido, conta/horaInicio, conta/HoraFim, garcom/nome, cozinheiro/nome
+        System.out.printf("=============== RELATORIO DE RECLAMACOES ================\n\n");
+        for(Reclamacao reclamacao: listReclamacao){
+            System.out.printf("- " + reclamacao.getIdReclamacao()+ ". "+ reclamacao.getDescricao() + ".\n");  
+        } 
+        System.out.printf("\n\n");
+        System.out.printf("==================== FIM DO RELATORIO ====================");
+    }
 }

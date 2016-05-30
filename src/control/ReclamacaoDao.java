@@ -22,7 +22,7 @@ public class ReclamacaoDao {
 	    public Reclamacao salvarReclamacao(Reclamacao reclamacao) throws IOException{
 	        try{
 	            bw = new BufferedWriter(new FileWriter("Reclamacao.cc", true));
-
+                    reclamacao.setIdReclamacao(maiorIdReclamacao()+1);
 	            bw.write("<idReclamacao>"+reclamacao.getIdReclamacao()
 	                        +"<descricao>"+reclamacao.getDescricao()+"<fdl>");
 	            bw.newLine();
@@ -67,8 +67,8 @@ public class ReclamacaoDao {
 	            fr = new BufferedReader(new FileReader("Reclamacao.cc"));
 
 	            while ((linha = fr.readLine()) != null) {
-	                idReclamacao =  Integer.parseInt(linha.substring(linha.indexOf("<idReclamacao>")+11, linha.indexOf("<descricao>")));
-	                descricao = linha.substring((linha.indexOf("<descricao>")+7), linha.indexOf("<fdl>"));
+	                idReclamacao =  Integer.parseInt(linha.substring(linha.indexOf("<idReclamacao>")+14, linha.indexOf("<descricao>")));
+	                descricao = linha.substring((linha.indexOf("<descricao>")+11), linha.indexOf("<fdl>"));
 
 	                listReclamacao.add(new Reclamacao(idReclamacao, descricao));
 	            }
@@ -87,8 +87,8 @@ public class ReclamacaoDao {
 	            fr = new BufferedReader(new FileReader("Reclamacao.cc"));
 
 	            while ((linha = fr.readLine()) != null) {
-	                idReclamacao =  Integer.parseInt(linha.substring(linha.indexOf("<idReclamacao>")+11, linha.indexOf("<descricao>")));
-	                descricao = linha.substring((linha.indexOf("<descricao>")+7), linha.indexOf("<fdl>"));
+	                idReclamacao =  Integer.parseInt(linha.substring(linha.indexOf("<idReclamacao>")+14, linha.indexOf("<descricao>")));
+	                descricao = linha.substring((linha.indexOf("<descricao>")+11), linha.indexOf("<fdl>"));
 
 	                if(idReclamacaoProcurado == idReclamacao){
 	                	Reclamacao reclamacaoProcurado = new Reclamacao(idReclamacao, descricao);
@@ -102,7 +102,22 @@ public class ReclamacaoDao {
 	        return null;
 	    }
 	    
-	   
+    public Integer maiorIdReclamacao() throws IOException{
+        Integer maiorIdReclamacao=0;
+        List<Reclamacao> listReclamacao = new ArrayList();
+        listReclamacao = abrirReclamacao();
+        
+        if(listReclamacao.size() > 0){
+            for(Reclamacao reclamacao: listReclamacao){
+                if( maiorIdReclamacao < reclamacao.getIdReclamacao()){
+                    maiorIdReclamacao = reclamacao.getIdReclamacao();
+                }
+            }
+            return maiorIdReclamacao;
+        }else{
+            return 0;
+        }
+    }
 	     
 	    
 	    
