@@ -7,6 +7,8 @@ import control.*;
 import model.*;
 import view.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -43,6 +45,8 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
     @After
     public void tearDown() {
     }
+    
+    // ================= AJUDA E SUPORTE =================
     @Test
     public void InserirAjudaESuporte() throws IOException{
         AjudaSuporteDao ajudaSuporteDao = new AjudaSuporteDao();
@@ -68,11 +72,34 @@ public class JUnitTest3 { // testeeeeeeeeeeeeeeeeeee
         assertNotNull(ajudaSuporte);
     }
     
+    @Test
+    public void ExibirAjudaESuporte() throws IOException{
+        AjudaSuporteDao ajudaSuporteDao = new AjudaSuporteDao();
+        AjudaSuporte ajudaSuporte = new AjudaSuporte();
+        
+        ajudaSuporte = ajudaSuporteDao.abrirAjudaSuporte(2);
 
+        assertNotNull(ajudaSuporte);
+    }
     
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    // ================= RELATORIO PEDIDOS POR CLIENTE =================
+    
+    @Test
+    public void ExibirRelatorioPedidosPorCliente() throws IOException{
+        PedidoDao pedidoDao = new PedidoDao();
+        List<Pedido> listPedido = new ArrayList();
+        listPedido = pedidoDao.abrirPedido();
+        
+        assertNotNull(listPedido);
+    }
+
+    @Test
+    public void ExibeRelatorioPorAtendimento() throws IOException{
+        PedidoDao pedidoDao = new PedidoDao();
+        List<Pedido> listPedido = new ArrayList();
+        
+        listPedido = pedidoDao.abrirPedido();
+        
+        assertNotNull(listPedido);
+    }
 }

@@ -9,3 +9,4 @@
 <idConta>9<idCliente>1<idMesa>1<dataHoraInicioAtendimento>29-05-2016 19:17:17<dataHoraFimAtendimento>null<fdl>
 <idConta>10<idCliente>1<idMesa>1<dataHoraInicioAtendimento>29-05-2016 20:14:32<dataHoraFimAtendimento>null<fdl>
 <idConta>11<idCliente>1<idMesa>1<dataHoraInicioAtendimento>29-05-2016 20:15:29<dataHoraFimAtendimento>null<fdl>
+<idConta>12<idCliente>1<idMesa>1<dataHoraInicioAtendimento>30-05-2016 00:35:45<dataHoraFimAtendimento>null<fdl>

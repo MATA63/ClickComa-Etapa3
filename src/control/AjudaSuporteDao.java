@@ -90,8 +90,8 @@ public class AjudaSuporteDao {
             fr = new BufferedReader(new FileReader("AjudaSuporte.cc"));
 
             while ((linha = fr.readLine()) != null) {
-            	 idAjudaSuporte =  Integer.parseInt(linha.substring(linha.indexOf("<idAjudaSuporte>")+16, linha.indexOf("<titulo>")));
-                 titulo = linha.substring(linha.indexOf("<titulo>")+8, linha.indexOf("<descricao>"));
+            	 idAjudaSuporte =  Integer.parseInt(linha.substring(linha.indexOf("<idAjudaSuporte>")+16, linha.indexOf("<Titulo>")));
+                 titulo = linha.substring(linha.indexOf("<Titulo>")+8, linha.indexOf("<descricao>"));
                  descricao = linha.substring(linha.indexOf("<descricao>")+11, linha.indexOf("<fdl>"));
                  
                 if(idAjudaSuporteProcurado == idAjudaSuporte){
